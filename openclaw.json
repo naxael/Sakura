@@ -1,0 +1,36 @@
+{
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "TELEGRAM_TOKEN_AQUI",
+      "dmPolicy": "allowlist",
+      "allowFrom": ["TU_TELEGRAM_ID"],
+      "groups": { "*": { "requireMention": true } }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": { "primary": "ollama/llama3" }
+    },
+    "list": [
+      {
+        "id": "sakura",
+        "name": "Sakura",
+        "agentDir": "~/.openclaw/agents/sakura"
+      }
+    ]
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://TOWER_TAILSCALE_IP:11434/v1",
+        "models": [
+          { "id": "llama3", "name": "Llama 3" }
+        ]
+      }
+    }
+  },
+  "gateway": {
+    "mode": "local"
+  }
+}
